@@ -11,7 +11,6 @@ import GraduationCap from 'lucide-react/dist/esm/icons/graduation-cap.mjs'
 import Mail from 'lucide-react/dist/esm/icons/mail.mjs'
 import Menu from 'lucide-react/dist/esm/icons/menu.mjs'
 import Moon from 'lucide-react/dist/esm/icons/moon.mjs'
-import Sparkles from 'lucide-react/dist/esm/icons/sparkles.mjs'
 import Sun from 'lucide-react/dist/esm/icons/sun.mjs'
 import X from 'lucide-react/dist/esm/icons/x.mjs'
 import { motion, useReducedMotion, useScroll, useSpring } from 'motion/react'
@@ -61,7 +60,7 @@ const skillGroups = [
 function getInitialTheme(): Theme {
   const storedTheme = localStorage.getItem('theme')
   if (storedTheme === 'light' || storedTheme === 'dark') return storedTheme
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  return 'light'
 }
 
 function App() {
@@ -121,17 +120,22 @@ function App() {
         <section className="hero section-wrap" aria-labelledby="hero-title">
           <div className="hero-grid">
             <motion.div className="hero-copy" initial={shouldReduceMotion ? false : { opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
-              <p className="eyebrow"><span /> Hello, I&apos;m Romeir Ranjan</p>
-              <h1 id="hero-title">I explore the space between <em>software</em> and intelligence.</h1>
-              <p className="hero-intro">Computer Science and Mathematics student at Penn State, interested in software engineering and AI/ML.</p>
+              <p className="eyebrow"><span /> Penn State · Computer Science &amp; Mathematics</p>
+              <h1 id="hero-title">Romeir<br />Ranjan<span className="hero-period">.</span></h1>
+              <p className="hero-role">Software engineering and AI, grounded in computer science and mathematics.</p>
+              <p className="hero-intro">I&apos;m a Penn State student building useful software and exploring intelligent systems that make complex information easier to work with.</p>
               <div className="hero-actions">
                 <a className="button button-primary" href="#projects">Explore my work <ArrowDown size={17} /></a>
                 <a className="text-link" href="mailto:romeirranjan@gmail.com">Let&apos;s connect <ArrowUpRight size={16} /></a>
               </div>
             </motion.div>
             <motion.aside className="hero-note" aria-label="Current focus" initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.25 }}>
-              <div className="note-topline"><Sparkles size={18} /><span>Current focus</span></div>
-              <p>Building and researching systems that make complex information more useful.</p>
+              <div className="note-topline"><span>Profile</span><span>01 / 03</span></div>
+              <dl className="profile-list">
+                <div><dt>University</dt><dd>Penn State</dd></div>
+                <div><dt>Study</dt><dd>Computer Science &amp; Mathematics</dd></div>
+                <div><dt>Graduation</dt><dd>May 2028</dd></div>
+              </dl>
               <div className="note-footer"><span>Software engineering</span><span>AI / machine learning</span></div>
             </motion.aside>
           </div>
