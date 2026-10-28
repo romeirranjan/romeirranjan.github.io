@@ -11,6 +11,7 @@ import GraduationCap from 'lucide-react/dist/esm/icons/graduation-cap.mjs'
 import Mail from 'lucide-react/dist/esm/icons/mail.mjs'
 import Menu from 'lucide-react/dist/esm/icons/menu.mjs'
 import Moon from 'lucide-react/dist/esm/icons/moon.mjs'
+import Phone from 'lucide-react/dist/esm/icons/phone.mjs'
 import Sun from 'lucide-react/dist/esm/icons/sun.mjs'
 import X from 'lucide-react/dist/esm/icons/x.mjs'
 import { motion, useReducedMotion, useScroll, useSpring } from 'motion/react'
@@ -23,6 +24,7 @@ const navigation = [
   { label: 'Experience', href: '#experience' },
   { label: 'Work', href: '#projects' },
   { label: 'Research', href: '#research' },
+  { label: 'Beyond', href: '#beyond' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -40,13 +42,47 @@ const projects = [
     description: 'An intelligent document workspace centered on bringing AI-assisted workflows directly into the editing experience.',
     tags: ['AI', 'Document tools', 'Software engineering'],
     icon: BookOpen,
+    link: null,
   },
   {
     number: '02',
-    title: 'MyCord Terminal Chat System',
-    description: 'A terminal-first chat system exploring focused communication through a developer-friendly interface.',
-    tags: ['Terminal UI', 'Chat systems', 'Developer tools'],
+    title: 'MyCord',
+    description: 'A deployable C client-server chat system with real-time messaging, a custom TCP protocol, multithreaded server handling, and an interactive terminal UI.',
+    tags: ['C', 'POSIX sockets', 'pthreads', 'Docker'],
     icon: Code2,
+    link: 'https://github.com/romeirranjan/MyCord-TUI-Command-Line-Agent',
+  },
+  {
+    number: '03',
+    title: 'Neon Study Planner',
+    description: 'A full-stack productivity application for calendar-based task management, goal tracking, authentication, and personal productivity analytics.',
+    tags: ['React', 'TypeScript', 'FastAPI', 'PostgreSQL'],
+    icon: BookOpen,
+    link: 'https://github.com/romeirranjan/neon_study_planner',
+  },
+  {
+    number: '04',
+    title: 'ZenLock',
+    description: 'A context-aware macOS focus tool that combines Gemini-assisted activity analysis with POSIX process control, Pomodoro sessions, and configurable app blocking.',
+    tags: ['C', 'Gemini API', 'POSIX signals', 'macOS'],
+    icon: Code2,
+    link: 'https://github.com/romeirranjan/zenlock',
+  },
+  {
+    number: '05',
+    title: 'Social Network Interface',
+    description: 'A Python and Streamlit social-network simulator with authentication, friend management, country insights, and breadth-first search for connection levels.',
+    tags: ['Python', 'Streamlit', 'BFS', 'Data structures'],
+    icon: BookOpen,
+    link: 'https://github.com/romeirranjan/SOCIAL_NETWORK_INTERFACE',
+  },
+  {
+    number: '06',
+    title: 'Personal Portfolio',
+    description: 'This responsive portfolio, built as a focused home for my software, research, experience, and work beyond the classroom.',
+    tags: ['React', 'TypeScript', 'Vite', 'Motion'],
+    icon: Code2,
+    link: 'https://github.com/romeirranjan/romeirranjan.github.io',
   },
 ]
 
@@ -55,6 +91,24 @@ const skillGroups = [
   { label: 'Frameworks', values: ['React', 'Tailwind CSS', 'Vite'] },
   { label: 'AI / Research', values: ['Multimodal RAG', 'BGE-M3', 'ColQwen', 'LightRAG'] },
   { label: 'Developer tools', values: ['Git', 'GitHub', 'Terminal'] },
+]
+
+const campusHighlights = [
+  {
+    label: 'Campus involvement',
+    title: 'Learning beyond the classroom',
+    description: 'Involved with HackPSU, the Public Speaking Club, the Second Floor Stand-Up Comedy Club, and the Association for India\'s Development.',
+  },
+  {
+    label: 'Recognition',
+    title: 'Dean’s List',
+    description: 'Recognized across Fall 2024, Spring 2025, Fall 2025, and Spring 2026.',
+  },
+  {
+    label: 'Community',
+    title: 'Volunteer service',
+    description: 'Contributed as a volunteer at Taste of India 2025 through the Association for India’s Development.',
+  },
 ]
 
 function getInitialTheme(): Theme {
@@ -92,8 +146,16 @@ function App() {
     <div className="site-shell">
       <motion.div className="scroll-progress" style={{ scaleX }} aria-hidden="true" />
 
+      <div className="service-strip">
+        <div><span className="status-dot" aria-hidden="true" />Computer Science + Mathematics at Penn State</div>
+        <span>Software engineering · AI · Research</span>
+      </div>
+
       <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="Romeir Ranjan, home">RR<span className="accent-dot">.</span></a>
+        <a className="wordmark" href="#top" aria-label="Romeir Ranjan, home">
+          <span>Romeir <strong>Ranjan</strong></span>
+          <i className="brand-dots" aria-hidden="true" />
+        </a>
         <nav className="desktop-nav" aria-label="Primary navigation">
           {navigation.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}
         </nav>
@@ -148,7 +210,7 @@ function App() {
             <h2>A curious builder with a foundation in computation and mathematics.</h2>
             <div className="about-copy">
               <p>I&apos;m Romeir, a student at Pennsylvania State University studying Computer Science and Mathematics. I&apos;m drawn to problems that call for both precise thinking and thoughtful engineering.</p>
-              <p>My interests center on software engineering, artificial intelligence, and machine learning—especially systems that help people work with information more effectively.</p>
+              <p>My interests center on software engineering, artificial intelligence, and machine learning—especially systems that help people work with information more effectively. Outside technical work, I stay involved in public speaking, campus organizations, and community service.</p>
             </div>
           </div>
         </motion.section>
@@ -175,7 +237,10 @@ function App() {
                 <article className="project-card" key={project.title}>
                   <div className="project-card-top"><span>{project.number}</span><Icon size={24} aria-hidden="true" /></div>
                   <div><h3>{project.title}</h3><p>{project.description}</p></div>
-                  <ul className="tag-list" aria-label={`${project.title} topics`}>{project.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
+                  <div className="project-card-footer">
+                    <ul className="tag-list" aria-label={`${project.title} topics`}>{project.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
+                    {project.link && <a className="project-link" href={project.link} target="_blank" rel="noreferrer" aria-label={`View ${project.title} source on GitHub`}>View source <ArrowUpRight size={15} /></a>}
+                  </div>
                 </article>
               )
             })}
@@ -204,12 +269,25 @@ function App() {
           </div>
         </motion.section>
 
+        <motion.section id="beyond" className="section-wrap content-section" {...reveal}>
+          <SectionHeading number="06" label="Beyond the classroom" />
+          <div className="section-title-row"><h2>Technical depth, strengthened by communication and community.</h2><Contact size={30} aria-hidden="true" /></div>
+          <div className="campus-grid">
+            {campusHighlights.map((item, index) => (
+              <article className="campus-card" key={item.title}>
+                <div className="campus-card-top"><span>0{index + 1}</span><p>{item.label}</p></div>
+                <div><h3>{item.title}</h3><p>{item.description}</p></div>
+              </article>
+            ))}
+          </div>
+        </motion.section>
+
         <motion.section id="education" className="section-wrap content-section" {...reveal}>
-          <SectionHeading number="06" label="Education" />
+          <SectionHeading number="07" label="Education" />
           <div className="education-card">
             <div className="education-icon"><GraduationCap size={30} /></div>
             <div className="education-main"><p>Pennsylvania State University</p><h2>B.S. Computer Science and Mathematics</h2></div>
-            <div className="education-meta"><strong>Expected May 2028</strong></div>
+            <div className="education-meta"><strong>Expected May 2028</strong><span>GPA 3.70 / 4.00</span></div>
           </div>
         </motion.section>
 
@@ -223,6 +301,7 @@ function App() {
               <a href="https://github.com/romeirranjan" target="_blank" rel="noreferrer"><GitFork size={19} /> GitHub <ArrowUpRight size={15} /></a>
               <a href="https://www.linkedin.com/in/romeir-ranjan/" target="_blank" rel="noreferrer"><Contact size={19} /> LinkedIn <ArrowUpRight size={15} /></a>
               <a href="mailto:romeirranjan@gmail.com"><Mail size={19} /> Email <ArrowUpRight size={15} /></a>
+              <a href="tel:+18148265265" aria-label="Call Romeir Ranjan at +1 814 826 5265"><Phone size={19} /> +1 814 826 5265</a>
               <button type="button" disabled title="Resume PDF coming soon"><Download size={19} /> Resume <span>Coming soon</span></button>
             </div>
             <footer><span>© {new Date().getFullYear()} Romeir Ranjan</span><a href="#top">Back to top <ArrowDown className="rotate-180" size={15} /></a></footer>
