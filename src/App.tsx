@@ -76,14 +76,6 @@ const projects = [
     icon: BookOpen,
     link: 'https://github.com/romeirranjan/SOCIAL_NETWORK_INTERFACE',
   },
-  {
-    number: '06',
-    title: 'Personal Portfolio',
-    description: 'This responsive portfolio, built as a focused home for my software, research, experience, and work beyond the classroom.',
-    tags: ['React', 'TypeScript', 'Vite', 'Motion'],
-    icon: Code2,
-    link: 'https://github.com/romeirranjan/romeirranjan.github.io',
-  },
 ]
 
 const skillGroups = [
