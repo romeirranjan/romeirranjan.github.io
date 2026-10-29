@@ -31,7 +31,6 @@ button { font: inherit; }
 .wordmark { display: flex; align-items: center; gap: 0.75rem; color: var(--indigo); font-size: 1.18rem; font-weight: 500; letter-spacing: -0.045em; }
 .wordmark strong { font-weight: 700; }
 .brand-dots { width: 28px; height: 22px; display: block; background-image: radial-gradient(circle, currentColor 2px, transparent 2.5px); background-size: 8px 8px; transform: skewX(-18deg); opacity: 0.88; }
-.accent-dot, .hero-period { color: var(--indigo); }
 .desktop-nav { display: flex; align-items: center; gap: 0.35rem; font-size: 0.75rem; font-weight: 600; color: var(--body-text); }
 .desktop-nav a { padding: 0.65rem 0.8rem; border-radius: 999px; transition: color 180ms ease, background 180ms ease; }
 .desktop-nav a:hover { color: var(--indigo); background: var(--accent-soft); }

@@ -183,7 +183,7 @@ function App() {
           <div className="hero-grid">
             <motion.div className="hero-copy" initial={shouldReduceMotion ? false : { opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
               <p className="eyebrow"><span /> Penn State · Computer Science &amp; Mathematics</p>
-              <h1 id="hero-title">Romeir<br />Ranjan<span className="hero-period">.</span></h1>
+              <h1 id="hero-title">Romeir<br />Ranjan</h1>
               <p className="hero-role">Software engineering and AI, grounded in computer science and mathematics.</p>
               <p className="hero-intro">I&apos;m a Penn State student building useful software and exploring intelligent systems that make complex information easier to work with.</p>
               <div className="hero-actions">
