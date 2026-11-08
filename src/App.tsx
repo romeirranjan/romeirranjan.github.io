@@ -176,11 +176,11 @@ function App() {
             <p className="contact-kicker"><span /> Let&apos;s build something useful</p>
             <h2>Interested in AI, data, or thoughtful software?</h2>
             <p>I&apos;m always open to conversations about research, engineering, and opportunities to build systems that turn complex information into useful experiences.</p>
-            <a className="contact-email" href={socialLinks.email}>romeirranjan@gmail.com <ArrowUpRight size={24} /></a>
+            <a className="contact-email" href={socialLinks.email} target="_blank" rel="noreferrer" aria-label="Compose an email to Romeir Ranjan in Gmail">romeirranjan@gmail.com <ArrowUpRight size={24} /></a>
             <div className="contact-actions">
               <a href={socialLinks.github} target="_blank" rel="noreferrer"><GitFork size={18} /> GitHub</a>
               <a href={socialLinks.linkedin} target="_blank" rel="noreferrer"><Contact size={18} /> LinkedIn</a>
-              <a href={socialLinks.email}><Mail size={18} /> Email</a>
+              <a href={socialLinks.email} target="_blank" rel="noreferrer" aria-label="Compose an email to Romeir Ranjan in Gmail"><Mail size={18} /> Email</a>
               <button type="button" disabled title="Resume PDF will be added soon"><Download size={18} /> Resume <span>Coming soon</span></button>
             </div>
             <footer>

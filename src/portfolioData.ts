@@ -121,5 +121,5 @@ export const researchTopics = ['BGE-M3', 'ColQwen', 'LightRAG', 'Retrieval fusio
 export const socialLinks = {
   github: 'https://github.com/romeirranjan',
   linkedin: 'https://www.linkedin.com/in/romeir-ranjan/',
-  email: 'mailto:romeirranjan@gmail.com',
+  email: 'https://mail.google.com/mail/?view=cm&fs=1&to=romeirranjan%40gmail.com',
 }
