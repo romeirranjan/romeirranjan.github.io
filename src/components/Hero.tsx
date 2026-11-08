@@ -3,6 +3,7 @@ import Contact from 'lucide-react/dist/esm/icons/contact.mjs'
 import Download from 'lucide-react/dist/esm/icons/download.mjs'
 import GitFork from 'lucide-react/dist/esm/icons/git-fork.mjs'
 import { motion, useReducedMotion } from 'motion/react'
+import profilePhoto from '../assets/profile-photo.jpg'
 import { socialLinks } from '../portfolioData'
 import { NetworkVisual } from './NetworkVisual'
 
@@ -27,9 +28,13 @@ export function Hero() {
       </motion.div>
 
       <motion.div className="hero__visual" initial={reduceMotion ? false : { opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.75, delay: 0.15 }}>
-        <div className="profile-placeholder" aria-label="Profile photo placeholder">
-          <div className="profile-placeholder__image"><span>RR</span></div>
-          <div><strong>Romeir Ranjan</strong><span>Profile photo placeholder</span></div>
+        <div className="profile-card">
+          <img className="profile-card__image" src={profilePhoto} alt="Romeir Ranjan" />
+          <div className="profile-card__details">
+            <span className="profile-card__label">Penn State · Class of 2028</span>
+            <strong>Romeir Ranjan</strong>
+            <span>Computer Science + Mathematics</span>
+          </div>
         </div>
         <NetworkVisual />
       </motion.div>

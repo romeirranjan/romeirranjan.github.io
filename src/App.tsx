@@ -90,12 +90,12 @@ function App() {
           <div className="timeline">
             {experience.map((item, index) => (
               <article className="timeline-item" key={`${item.role}-${item.organization}`}>
-                <div className="timeline-item__index">0{index + 1}</div>
+                <div className="timeline-item__index">{String(index + 1).padStart(2, '0')}</div>
                 <div className="timeline-item__marker"><span /></div>
                 <div className="timeline-item__content">
                   <div className="timeline-item__heading">
                     <div><p>{item.organization}</p><h3>{item.role}</h3></div>
-                    <span>{item.type}</span>
+                    <div className="timeline-item__meta"><span>{item.period}</span><span>{item.type}</span></div>
                   </div>
                   <p>{item.description}</p>
                 </div>
